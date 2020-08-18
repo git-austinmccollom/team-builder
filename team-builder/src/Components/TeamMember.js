@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 export default function TeamMember(props) {
 
+
     const TeamMemberDiv = styled.div`
         border: 1px solid black;
         border-radius: 10px;
@@ -13,7 +14,7 @@ export default function TeamMember(props) {
         justify-content: center;
         margin: 20px auto 20px;
     `
-    
+
     return (
         <TeamMemberDiv>
             <p>team member</p>
