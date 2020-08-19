@@ -5,12 +5,42 @@ import uuid from 'react-uuid';
 import Form from './Components/Form'
 import TeamMember from './Components/TeamMember'
 
+const initialTeam = {
+  id: 1,
+  name: 'Austin McCollom',
+  email: 'austinmccollom@gmail.com',
+  role: 'Full-Stack Web Developer'
+}
+
+const initialFormValues = {
+  name: '',
+  email: '',
+  role: ''
+}
+
 function App() {
-  const [ team, setTeam ] = useState([{id: uuid(), name: 'Austin McCollom', email: 'austinmccollom@gmail.com', role: 'Full-Stack Web Developer'}, {id: uuid(), name: 'Sam Hill', email: 'samuelgarretthill@gmail.com', role: 'Full-Stack Web Developer'}]);
+  const [ team, setTeam ] = useState([initialTeam]);
+  const [ formValues, setFormValues ] = useState(initialFormValues)
+
+  const updateForm = (inputName, inputValue) => {
+    setFormValues( { ...formValues, [inputName]: inputValue } );
+  }
+
+  const submitForm = () => {
+    const newMember = {
+      id: uuid(),
+      name: formValues.name.trim(),
+      email: formValues.email.trim(),
+      role: formValues.role.trim()
+    }
+    debugger
+    console.log(newMember);
+    setTeam( [...team, newMember])
+  }
   return (
     <div className="App">
       <h1>Team</h1>
-      <Form />
+      <Form formValues={formValues} updateForm={updateForm} submitForm={submitForm}/>
       {
         team.map( member => {
           return <TeamMember key={member.id} member={member} />

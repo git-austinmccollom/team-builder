@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 export default function TeamMember(props) {
     const { name, email } = props.member
-    console.log(name);
 
     const TeamMemberDiv = styled.div`
         border: 1px solid black;
