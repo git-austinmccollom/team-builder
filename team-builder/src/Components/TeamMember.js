@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 export default function TeamMember(props) {
-    const { name, email } = props.member
+    const { name, email, role } = props.member
 
     const TeamMemberDiv = styled.div`
         border: 1px solid black;
@@ -20,6 +20,7 @@ export default function TeamMember(props) {
         <TeamMemberDiv>
             <p>team member: {name}</p>
             <p>email: {email}</p>
+            <p>role: {role}</p>
         </TeamMemberDiv>
     )
 }

@@ -33,7 +33,6 @@ function App() {
       email: formValues.email.trim(),
       role: formValues.role.trim()
     }
-    debugger
     console.log(newMember);
     setTeam( [...team, newMember])
   }
